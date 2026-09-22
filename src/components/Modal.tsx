@@ -67,6 +67,12 @@ export default function Modal() {
                   {renderIngredients()}
                   <Dialog.Title as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
                     <p className="text-lg">{selectedRecipe.strInstructions}</p>
+                    <div className='mt-5 flex justify-between'>
+                        <button
+                            className="w-full rounded bg-gray-600 p-3 font-bold uppercase text-white shadow hover:bg-gray-500"
+                        > close
+                        </button>
+                    </div>
                   </Dialog.Title>
                 </Dialog.Panel>
               </Transition.Child>
