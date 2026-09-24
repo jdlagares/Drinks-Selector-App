@@ -13,6 +13,7 @@ export default function Header() {
     const fetchCategories= useAppStore((state)=>state.fetchCategories)
     const categories= useAppStore((state)=>state.categories)
     const searchRecipes= useAppStore((state)=>state.searchRecipes)
+    const showNotification= useAppStore((state)=>state.showNotification)
 
     const handleChange = (e:ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) =>{
         setSearchFilters({
@@ -22,8 +23,12 @@ export default function Header() {
     }
     const handleSubmit = (e:SubmitEvent<HTMLFormElement>)=>{
         e.preventDefault()
-        //TODO: VALIDAR
+        
         if(Object.values(searchFilters).includes("")){
+            showNotification({
+                text:" all fields mayority",
+                error: true
+            })
             return
         }
         searchRecipes(searchFilters)
